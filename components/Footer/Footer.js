@@ -23,8 +23,7 @@ export default function Footer() {
             <li className={styles.li}>Interview Tips</li>
             <li className={styles.li}>CV Advice</li>
             <li className={styles.li}>Recent jobs</li>
-            <li className={styles.li}>Jobs Alerts</li>
-            <li className={styles.li}>F.A.Q</li>
+            <li className={styles.li}>Create account</li>
           </ul>
         </div>
         <div className={styles.txt}>
@@ -34,9 +33,7 @@ export default function Footer() {
             <li className={styles.li}>Get Started</li>
             <li className={styles.li}>Our Benefits</li>
             <li className={styles.li}>Our Services</li>
-            <li className={styles.li}>About us</li>
-            <li className={styles.li}>Contact us</li>
-            <li className={styles.li}>F.A.Q</li>
+            <li className={styles.li}><a href="/contact">Contact us</a></li>
           </ul>
         </div>
         <div className={styles.txt}>

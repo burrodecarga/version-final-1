@@ -49,6 +49,11 @@
   padding: 5px 5px;
 }
 
+.span{
+  color: var(--orange-color);
+  cursor: pointer;
+}
+
 .left {
   margin-left: 50px;
 }

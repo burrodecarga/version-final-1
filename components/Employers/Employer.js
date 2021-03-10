@@ -13,7 +13,7 @@ const { publicRuntimeConfig } = getConfig()
 
 export default function Employer({states}) {
 
-    console.log(states,publicRuntimeConfig.API_URL)
+   // console.log(states,publicRuntimeConfig.API_URL)
 
     const {register, handleSubmit, errors} = useForm()
 
@@ -38,7 +38,7 @@ export default function Employer({states}) {
             Email: email,
             Phone: phone,
             Location:location,
-            Service:service,
+            service:service,
             Message:message,
             Active:true
         }      
@@ -69,6 +69,10 @@ export default function Employer({states}) {
         
       }
   //console.log('errores',errors); 
+function toPolicies(){
+   
+    Router.push('/policies')
+}
 
 return (
     <>
@@ -169,11 +173,11 @@ return (
                 </div>
                 </div>
                 <p>Policy privacy <span className={styles.span}>*</span></p>
-                   <label htmlFor="policy" className={styles.policy}>
+                   <label htmlFor="policy" className={styles.policy} onClick={toPolicies}>
                       I agree with the 
-                      <span className={styles.span}> terms of use</span>,
-                       <span className={styles.span}> privacy policy</span>, and 
-                       <span className={styles.span}> cookie policy</span> by sending my message.
+                      <span className={styles.span}  onClick={toPolicies}> terms of use</span>,
+                       <span className={styles.span} onClick={toPolicies}> privacy policy</span>, and 
+                       <span className={styles.span} onClick={toPolicies}> cookie policy</span> by sending my message.
                        </label>
                 <div className={styles.btnSide, styles.up}>
                     <input type="submit"  className={styles.btn} value="send message"/>

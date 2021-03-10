@@ -4,6 +4,7 @@ import getConfig from 'next/config'
 import { useState } from 'react'
 import { parseCookies  } from 'nookies'
 import {useForm} from 'react-hook-form'
+import Link from 'next/link'
 
 const { publicRuntimeConfig } = getConfig()
 // onClick={() => addMessage() }
@@ -35,7 +36,7 @@ export default function Contact({states}) {
             Email: email,
             Phone: phone,
             Location:location,
-            Service:service,
+            service:service,
             Message:message,
             Active:true
         }      
@@ -59,6 +60,9 @@ export default function Contact({states}) {
       };
      
   //console.log('errores',errors); 
+  function toPolicies(){
+    Router.push('/policies')
+}
 
 return (
     <>
@@ -78,20 +82,20 @@ return (
                 <div className={styles.separator, styles.martop}>
                 <div>
                 <label for="labor">Are you hiring or applying? <span>*</span></label>
-                <select name="labor">
-                    <option hidden="" disabled="" selected="">Select from the list</option>
-                    <option value="service">I Need Staffing Services</option>
-                    <option value="service">I want  to apply for a job</option>
+                <select name="labor"  onChange={e=>setLabor(e.target.value)}>
+                    <option hidden="" disabled="" value={e=>e.target.value} >Select from the list</option>
+                    <option value={"I Need Staffing Services"}>I Need Staffing Services</option>
+                    <option value={"I want  to apply for a job"}>I want  to apply for a job</option>
                 </select>
                 </div>
                 <div className={styles.left}>
-               <label for="location">What shift are you looking for? <span>*</span></label>
-                <select name="location">
-                    <option hidden="" disabled="" selected="">Select from the list</option>
-                    <option value="service">1st Shift</option>
-                    <option value="service">2nd Shift</option>
-                    <option value="service">3rd Shift</option>
-                    <option value="service">Any Shift Available</option>
+               <label for="service">What shift are you looking for? <span>*</span></label>
+                <select name="service" onChange={e=>setService(e.target.value)}>
+                    <option hidden="" disabled="" defaultValue="">Select from the list</option>
+                    <option value={"1st Shift"}>1st Shift</option>
+                    <option value={"2nd Shift"}>2nd Shift</option>
+                    <option value={"3rd Shift"}>3rd Shift</option>
+                    <option value={"Any Shift Available"}>Any Shift Available</option>
                 </select>
                 </div>
                 </div>
@@ -203,15 +207,17 @@ return (
                onChange={e => setPolicy(e.target.value) } value={policy}
                 type="checkbox" id="policy"
                  name="policy"
-                 value="Bike" className={styles.check}
-                 className={styles.input}/>
-                   <label htmlFor="policy" className={styles.policy}>
+                 value={policy} className={styles.check}
+                 />
+                 
+                   <label htmlFor="policy" className={styles.policy}  onClick={toPolicies}>
                       I have read and agree with the 
-                      <span>terms of use</span>,
-                       <span>privacy policy</span>, and 
-                       <span>cookie policy</span>.
-                       </label>
-                <div className={styles.btnSide, styles.up}>
+                       <span   className={styles.span} onClick={toPolicies}>terms of use</span>,
+                       <span   className={styles.span} onClick={toPolicies}>privacy policy</span>, and 
+                       <span   className={styles.span} onClick={toPolicies}>cookie policy</span>.
+                     </label> 
+
+                  <div className={styles.btnSide, styles.up}>
                     <input type="submit"  className={styles.btn, styles.btnPage} value="send message"/>
             </div>
           </form>  
