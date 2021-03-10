@@ -1,7 +1,7 @@
 import React from 'react'
-import PrepareInterview from '../components/Prepare-interview/Prepare-interview'
+import PrepareInterview from '../components/Prepare-interview/Prepare-Interview'
 
-export default function servicios() {
+export default function serviciosPre() {
   return (
     <div>
       <PrepareInterview />
