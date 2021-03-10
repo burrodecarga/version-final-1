@@ -1,7 +1,5 @@
 import React from 'react'
-import Link from 'next/link'
 import styles from '../Prepare-interview/PrepareInterview.module.css'
-
 
 function PrepareInterview() {
   return (
