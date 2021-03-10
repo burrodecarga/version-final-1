@@ -21,6 +21,7 @@
 }
 .span{
   color: var(--orange-color);
+  cursor: pointer;
 }
 
 .separator {

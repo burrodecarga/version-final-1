@@ -11,6 +11,10 @@ import Swal from 'sweetalert2'
 const { publicRuntimeConfig } = getConfig()
 // onClick={() => addMessage() }
 
+function toPolicies(){
+    Router.push('/policies')
+}
+
 export default function ContactUS({states}) {
 
     console.log(states,publicRuntimeConfig.API_URL)
@@ -150,9 +154,9 @@ return (
                 <p>Policy privacy <span className={styles.span}>*</span></p>
                    <label htmlFor="policy" className={styles.policy}>
                       I agree with the 
-                      <span className={styles.span}> terms of use</span>,
-                       <span className={styles.span}> privacy policy</span>, and 
-                       <span className={styles.span}> cookie policy</span> by sending my message.
+                      <span className={styles.span} onClick={toPolicies}> terms of use</span>,
+                       <span className={styles.span} onClick={toPolicies}> privacy policy</span>, and 
+                       <span className={styles.span} onClick={toPolicies}> cookie policy</span> by sending my message.
                        </label>
                 <div className={styles.btnSide, styles.up}>
                     <input type="submit"  className={styles.btn} value="send message"/>
